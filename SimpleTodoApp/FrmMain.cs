@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 
+// TODO add edit functionality
+// TODO add attach file feature to the Task class
+
 namespace SimpleTodoApp
 {
     public partial class FrmMain : Form
@@ -24,7 +27,7 @@ namespace SimpleTodoApp
 
         private void BtnAddTask_Click(object sender, EventArgs e)
         {
-            String newTask = FrmInputTaskBox.ReadNewTask();
+            TaskTODO newTask = FrmInputTask.ReadNewTask();
 
             if (newTask != null)
             {
@@ -54,6 +57,12 @@ namespace SimpleTodoApp
             ClbTodoList.Items.RemoveAt(ClbTodoList.SelectedIndex);
             _NumberOfCheckedTasks = ((uint)ClbTodoList.CheckedItems.Count);
             UpdateTasksInfoLable();
+        }
+
+        private void ClbTodoList_DoubleClick(object sender, EventArgs e)
+        {
+            if (ClbTodoList.SelectedIndex != -1)
+                FrmViewTask.ViewTask((TaskTODO) ClbTodoList.Items[ClbTodoList.SelectedIndex]);
         }
     }
 }

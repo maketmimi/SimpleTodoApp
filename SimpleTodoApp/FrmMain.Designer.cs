@@ -52,6 +52,7 @@
             this.ClbTodoList.TabIndex = 1;
             this.ClbTodoList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ClbTodoList_ItemCheck);
             this.ClbTodoList.SelectedIndexChanged += new System.EventHandler(this.ClbTodoList_SelectedIndexChanged);
+            this.ClbTodoList.DoubleClick += new System.EventHandler(this.ClbTodoList_DoubleClick);
             // 
             // LbTasksInfo
             // 

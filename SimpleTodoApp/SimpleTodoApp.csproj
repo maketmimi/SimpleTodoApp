@@ -32,6 +32,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SimpleTodoApp.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,11 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmInputTaskBox.cs">
+    <Compile Include="FrmInputTask.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInputTaskBox.Designer.cs">
-      <DependentUpon>FrmInputTaskBox.cs</DependentUpon>
+    <Compile Include="FrmInputTask.Designer.cs">
+      <DependentUpon>FrmInputTask.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -58,13 +72,23 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmViewTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewTask.Designer.cs">
+      <DependentUpon>FrmViewTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmInputTaskBox.resx">
-      <DependentUpon>FrmInputTaskBox.cs</DependentUpon>
+    <Compile Include="TaskTODO.cs" />
+    <EmbeddedResource Include="FrmInputTask.resx">
+      <DependentUpon>FrmInputTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewTask.resx">
+      <DependentUpon>FrmViewTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +116,7 @@
     <Content Include="Assets\icon.ico" />
     <Content Include="Assets\icon.png" />
     <Content Include="Assets\MainFormBackground.png" />
+    <Content Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

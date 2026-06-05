@@ -2,20 +2,22 @@
 
 namespace SimpleTodoApp
 {
-    public partial class FrmInputTaskBox : Form
+    public partial class FrmInputTask : Form
     {
-        private FrmInputTaskBox()
+        private FrmInputTask()
         {
             InitializeComponent();
         }
 
-        public static string ReadNewTask()
+        private TaskTODO _Task;
+
+        public static TaskTODO ReadNewTask()
         {
-            FrmInputTaskBox taskBox = new FrmInputTaskBox();
+            FrmInputTask taskBox = new FrmInputTask();
 
             taskBox.ShowDialog();
 
-            return taskBox._IsCanceled ? null : taskBox.TxtTask.Text;
+            return taskBox._IsCanceled ? null : taskBox._Task;
         }
 
         private bool _IsCanceled = false;
@@ -29,10 +31,13 @@ namespace SimpleTodoApp
 
         private void BtnAdd_Click(object sender, System.EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtTask.Text.Trim()))
+            if (string.IsNullOrEmpty(TxtTitle.Text.Trim()))
                 MessageBox.Show("!إدخال خاطئ", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
-                CloseFormProgramaticly();
+            {
+                _Task = new TaskTODO(TxtTitle.Text, TxtDescription.Text);
+                CloseFormProgramaticly(); // indicates success
+            }
         }
     
         private void Cancel(object sender, System.EventArgs e)
