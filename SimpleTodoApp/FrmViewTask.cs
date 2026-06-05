@@ -25,7 +25,7 @@ namespace SimpleTodoApp
     
         private static void ShowViewError()
         {
-            MessageBox.Show("حدث خطأ غير متوقع", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("حدث خطأ غير متوقع", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
         }
 
         public static void ViewTask(TaskTODO task)

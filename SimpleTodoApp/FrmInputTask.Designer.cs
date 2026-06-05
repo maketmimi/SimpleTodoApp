@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInputTask));
-            this.BtnAdd = new System.Windows.Forms.Button();
+            this.BtnDone = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtDescription = new System.Windows.Forms.TextBox();
@@ -37,22 +37,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // BtnAdd
+            // BtnDone
             // 
-            this.BtnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.BtnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(210)))), ((int)(((byte)(220)))));
-            this.BtnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(248)))));
-            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAdd.Font = new System.Drawing.Font("Almarai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAdd.Location = new System.Drawing.Point(513, 404);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnAdd.Size = new System.Drawing.Size(141, 48);
-            this.BtnAdd.TabIndex = 2;
-            this.BtnAdd.Text = "إضافة";
-            this.BtnAdd.UseVisualStyleBackColor = false;
-            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            this.BtnDone.BackColor = System.Drawing.Color.Transparent;
+            this.BtnDone.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnDone.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(210)))), ((int)(((byte)(220)))));
+            this.BtnDone.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(248)))));
+            this.BtnDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDone.Font = new System.Drawing.Font("Almarai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDone.Location = new System.Drawing.Point(513, 404);
+            this.BtnDone.Name = "BtnDone";
+            this.BtnDone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BtnDone.Size = new System.Drawing.Size(141, 48);
+            this.BtnDone.TabIndex = 2;
+            this.BtnDone.Text = "تم";
+            this.BtnDone.UseVisualStyleBackColor = false;
+            this.BtnDone.Click += new System.EventHandler(this.BtnDone_Click);
             // 
             // BtnCancel
             // 
@@ -131,7 +131,7 @@
             this.Controls.Add(this.TxtTitle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnCancel);
-            this.Controls.Add(this.BtnAdd);
+            this.Controls.Add(this.BtnDone);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -146,7 +146,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button BtnAdd;
+        private System.Windows.Forms.Button BtnDone;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtDescription;

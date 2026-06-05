@@ -33,6 +33,7 @@
             this.LbTasksInfo = new System.Windows.Forms.Label();
             this.BtnAddTask = new System.Windows.Forms.Button();
             this.BtnDeleteTask = new System.Windows.Forms.Button();
+            this.BtnEditTask = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ClbTodoList
@@ -48,7 +49,6 @@
             this.ClbTodoList.Name = "ClbTodoList";
             this.ClbTodoList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ClbTodoList.Size = new System.Drawing.Size(346, 302);
-            this.ClbTodoList.Sorted = true;
             this.ClbTodoList.TabIndex = 1;
             this.ClbTodoList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ClbTodoList_ItemCheck);
             this.ClbTodoList.SelectedIndexChanged += new System.EventHandler(this.ClbTodoList_SelectedIndexChanged);
@@ -75,10 +75,10 @@
             this.BtnAddTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(248)))));
             this.BtnAddTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAddTask.Font = new System.Drawing.Font("Almarai", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAddTask.Location = new System.Drawing.Point(464, 385);
+            this.BtnAddTask.Location = new System.Drawing.Point(488, 385);
             this.BtnAddTask.Name = "BtnAddTask";
             this.BtnAddTask.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnAddTask.Size = new System.Drawing.Size(98, 33);
+            this.BtnAddTask.Size = new System.Drawing.Size(74, 33);
             this.BtnAddTask.TabIndex = 0;
             this.BtnAddTask.Text = "إضافة";
             this.BtnAddTask.UseVisualStyleBackColor = false;
@@ -87,21 +87,40 @@
             // BtnDeleteTask
             // 
             this.BtnDeleteTask.BackColor = System.Drawing.Color.Transparent;
-            this.BtnDeleteTask.Enabled = false;
             this.BtnDeleteTask.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnDeleteTask.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(210)))), ((int)(((byte)(220)))));
-            this.BtnDeleteTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(248)))));
+            this.BtnDeleteTask.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnDeleteTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.BtnDeleteTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDeleteTask.Font = new System.Drawing.Font("Almarai", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDeleteTask.Location = new System.Drawing.Point(216, 385);
+            this.BtnDeleteTask.Location = new System.Drawing.Point(328, 385);
             this.BtnDeleteTask.Name = "BtnDeleteTask";
             this.BtnDeleteTask.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnDeleteTask.Size = new System.Drawing.Size(98, 33);
+            this.BtnDeleteTask.Size = new System.Drawing.Size(74, 33);
             this.BtnDeleteTask.TabIndex = 3;
             this.BtnDeleteTask.TabStop = false;
             this.BtnDeleteTask.Text = "حذف";
             this.BtnDeleteTask.UseVisualStyleBackColor = false;
+            this.BtnDeleteTask.Visible = false;
             this.BtnDeleteTask.Click += new System.EventHandler(this.BtnDeleteTask_Click);
+            // 
+            // BtnEditTask
+            // 
+            this.BtnEditTask.BackColor = System.Drawing.Color.Transparent;
+            this.BtnEditTask.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnEditTask.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(210)))), ((int)(((byte)(220)))));
+            this.BtnEditTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(248)))));
+            this.BtnEditTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditTask.Font = new System.Drawing.Font("Almarai", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditTask.Location = new System.Drawing.Point(408, 385);
+            this.BtnEditTask.Name = "BtnEditTask";
+            this.BtnEditTask.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BtnEditTask.Size = new System.Drawing.Size(74, 33);
+            this.BtnEditTask.TabIndex = 4;
+            this.BtnEditTask.TabStop = false;
+            this.BtnEditTask.Text = "تعديل";
+            this.BtnEditTask.UseVisualStyleBackColor = false;
+            this.BtnEditTask.Visible = false;
+            this.BtnEditTask.Click += new System.EventHandler(this.BtnEditTask_Click);
             // 
             // FrmMain
             // 
@@ -111,6 +130,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(778, 458);
+            this.Controls.Add(this.BtnEditTask);
             this.Controls.Add(this.BtnDeleteTask);
             this.Controls.Add(this.BtnAddTask);
             this.Controls.Add(this.LbTasksInfo);
@@ -120,6 +140,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.Text = "مدير المهام";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
@@ -131,6 +152,7 @@
         private System.Windows.Forms.Label LbTasksInfo;
         private System.Windows.Forms.Button BtnAddTask;
         private System.Windows.Forms.Button BtnDeleteTask;
+        private System.Windows.Forms.Button BtnEditTask;
     }
 }
 
