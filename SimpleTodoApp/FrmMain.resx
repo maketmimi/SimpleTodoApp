@@ -132,6 +132,12 @@
   <metadata name="BtnEditTask.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="CbCategories.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="BtnShowMore.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -139,7 +145,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABYAAAAMACAIAAAASU1SbAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAA/7JJREFUeF6k/YlyG7nSdYGe93+tG3F6bo8aLNuSZY2cqlicNNq+a+8NgCV3f+e/
+        DAAACwwBP0AiyAAA/7JJREFUeF6k/YlyG7nSdYGe93+tG3F6bo8aLNuSZY2cqlicNNq+a+8NgCV3f+e/
         ETciA5FIJFAUTZYrFxOJ//z4tvv2uP7xvEWen1fIj2+b709Svn/fVPsG+f7t/vlp9/S0Rqf9/n33zfLj
         +8O35zvWsdy7e//0fPf84/7p+x1DTMQo+/fd9x/qaqlvdwiLIHWF+x84s+Y3XZTVvn+T/fvTTq/hie59
         rqIprJO5VsrVvz/go+k/7vLK0RH+kG/f1j+eZEF/fB50OU+UHf1Zr1PGzHq+R7IUr/n5+zp/Ke8J/rg9

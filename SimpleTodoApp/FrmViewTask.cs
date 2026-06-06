@@ -14,6 +14,7 @@ namespace SimpleTodoApp
             {
                 TxtTitle.Text = task.Title;
                 TxtDescription.Text = task.Description;
+                TxtCategory.Text = task.category.Name;
             }
 
         }

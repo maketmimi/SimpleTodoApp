@@ -35,6 +35,8 @@
             this.TxtDescription = new System.Windows.Forms.TextBox();
             this.TxtTitle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.TxtCategory = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnDone
@@ -45,11 +47,11 @@
             this.BtnDone.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(248)))));
             this.BtnDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDone.Font = new System.Drawing.Font("Almarai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDone.Location = new System.Drawing.Point(513, 404);
+            this.BtnDone.Location = new System.Drawing.Point(513, 460);
             this.BtnDone.Name = "BtnDone";
             this.BtnDone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnDone.Size = new System.Drawing.Size(141, 48);
-            this.BtnDone.TabIndex = 2;
+            this.BtnDone.TabIndex = 3;
             this.BtnDone.Text = "تم";
             this.BtnDone.UseVisualStyleBackColor = false;
             this.BtnDone.Click += new System.EventHandler(this.BtnDone_Click);
@@ -62,11 +64,11 @@
             this.BtnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(248)))));
             this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancel.Font = new System.Drawing.Font("Almarai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancel.Location = new System.Drawing.Point(366, 404);
+            this.BtnCancel.Location = new System.Drawing.Point(366, 460);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnCancel.Size = new System.Drawing.Size(141, 48);
-            this.BtnCancel.TabIndex = 3;
+            this.BtnCancel.TabIndex = 4;
             this.BtnCancel.Text = "إلغاء";
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.Cancel);
@@ -87,14 +89,14 @@
             // 
             this.TxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtDescription.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDescription.Location = new System.Drawing.Point(12, 151);
+            this.TxtDescription.Location = new System.Drawing.Point(12, 207);
             this.TxtDescription.MaxLength = 0;
             this.TxtDescription.Multiline = true;
             this.TxtDescription.Name = "TxtDescription";
             this.TxtDescription.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TxtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.TxtDescription.Size = new System.Drawing.Size(642, 247);
-            this.TxtDescription.TabIndex = 1;
+            this.TxtDescription.TabIndex = 2;
             this.TxtDescription.WordWrap = false;
             // 
             // TxtTitle
@@ -113,19 +115,44 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Almarai", 16F);
-            this.label1.Location = new System.Drawing.Point(516, 114);
+            this.label1.Location = new System.Drawing.Point(516, 170);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(144, 34);
             this.label1.TabIndex = 6;
             this.label1.Text = "وصف المهمة:";
             // 
+            // TxtCategory
+            // 
+            this.TxtCategory.BackColor = System.Drawing.Color.White;
+            this.TxtCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtCategory.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCategory.Location = new System.Drawing.Point(326, 109);
+            this.TxtCategory.Name = "TxtCategory";
+            this.TxtCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TxtCategory.Size = new System.Drawing.Size(181, 43);
+            this.TxtCategory.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Almarai", 16F);
+            this.label3.Location = new System.Drawing.Point(508, 118);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(152, 34);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "تصنيف المهمة:";
+            // 
             // FrmInputTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(666, 459);
+            this.ClientSize = new System.Drawing.Size(666, 517);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TxtCategory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtDescription);
             this.Controls.Add(this.TxtTitle);
@@ -152,5 +179,7 @@
         private System.Windows.Forms.TextBox TxtDescription;
         private System.Windows.Forms.TextBox TxtTitle;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtCategory;
+        private System.Windows.Forms.Label label3;
     }
 }

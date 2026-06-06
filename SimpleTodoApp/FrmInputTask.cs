@@ -8,7 +8,7 @@ namespace SimpleTodoApp
         private FrmInputTask()
         {
             InitializeComponent();
-            _Task = new TaskTODO("", "", false);
+            _Task = new TaskTODO("", "", false, null);
         }
 
         private FrmInputTask(TaskTODO taskToEdit)
@@ -24,6 +24,7 @@ namespace SimpleTodoApp
         {
             TxtTitle.Text = taskToEdit.Title;
             TxtDescription.Text = taskToEdit.Description;
+            TxtCategory.Text = taskToEdit.category.Name;
         }
 
         public static TaskTODO ReadNewTask()
@@ -57,6 +58,8 @@ namespace SimpleTodoApp
 
         private bool ContainsAny(string str, string[] arrValues)
         {
+            if (str == null) return false;
+
             foreach (var value in arrValues)
             {
                 if (str.Contains(value))
@@ -70,12 +73,13 @@ namespace SimpleTodoApp
         {
             string[] InvalidInputs = {TaskTODO.RecordSeperator, TaskTODO.TasksSeperator};
 
-            if (string.IsNullOrEmpty(TxtTitle.Text.Trim()) || ContainsAny(TxtTitle.Text, InvalidInputs) || ContainsAny(TxtDescription.Text, InvalidInputs))
+            if (string.IsNullOrEmpty(TxtTitle.Text.Trim()) || ContainsAny(TxtTitle.Text, InvalidInputs) || ContainsAny(TxtDescription.Text, InvalidInputs) || ContainsAny(TxtCategory.Text, InvalidInputs))
                 MessageBox.Show("إدخال خاطئ!\n\nيجب أن لا تقوم بإدخال هذه الرموز:\n[TASK]\n#//#", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
             else
             {
                 _Task.Title = TxtTitle.Text;
                 _Task.Description = TxtDescription.Text;
+                _Task.category = new Category(TxtCategory.Text);
 
                 CloseFormProgramaticly(); // indicates success
             }
