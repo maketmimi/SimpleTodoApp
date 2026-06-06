@@ -36,6 +36,8 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtCategory = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtDeadLine = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TxtTitle
@@ -55,7 +57,7 @@
             // 
             this.TxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtDescription.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDescription.Location = new System.Drawing.Point(12, 200);
+            this.TxtDescription.Location = new System.Drawing.Point(12, 140);
             this.TxtDescription.MaxLength = 0;
             this.TxtDescription.Multiline = true;
             this.TxtDescription.Name = "TxtDescription";
@@ -72,7 +74,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Almarai", 16F);
-            this.label1.Location = new System.Drawing.Point(516, 163);
+            this.label1.Location = new System.Drawing.Point(516, 103);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(144, 34);
@@ -98,7 +100,7 @@
             this.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(248)))));
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnClose.Font = new System.Drawing.Font("Almarai", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnClose.Location = new System.Drawing.Point(532, 453);
+            this.BtnClose.Location = new System.Drawing.Point(532, 473);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnClose.Size = new System.Drawing.Size(122, 36);
@@ -112,7 +114,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Almarai", 16F);
-            this.label3.Location = new System.Drawing.Point(508, 110);
+            this.label3.Location = new System.Drawing.Point(508, 390);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(152, 34);
@@ -122,14 +124,38 @@
             // TxtCategory
             // 
             this.TxtCategory.BackColor = System.Drawing.Color.White;
-            this.TxtCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtCategory.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCategory.Location = new System.Drawing.Point(321, 103);
+            this.TxtCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtCategory.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCategory.Location = new System.Drawing.Point(371, 427);
             this.TxtCategory.Name = "TxtCategory";
             this.TxtCategory.ReadOnly = true;
             this.TxtCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TxtCategory.Size = new System.Drawing.Size(181, 36);
+            this.TxtCategory.Size = new System.Drawing.Size(283, 39);
             this.TxtCategory.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Almarai", 16F);
+            this.label4.Location = new System.Drawing.Point(225, 390);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(146, 34);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "الموعد النهائي:";
+            // 
+            // TxtDeadLine
+            // 
+            this.TxtDeadLine.BackColor = System.Drawing.Color.White;
+            this.TxtDeadLine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtDeadLine.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDeadLine.Location = new System.Drawing.Point(12, 427);
+            this.TxtDeadLine.Name = "TxtDeadLine";
+            this.TxtDeadLine.ReadOnly = true;
+            this.TxtDeadLine.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TxtDeadLine.Size = new System.Drawing.Size(353, 39);
+            this.TxtDeadLine.TabIndex = 14;
             // 
             // FrmViewTask
             // 
@@ -137,7 +163,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(666, 501);
+            this.ClientSize = new System.Drawing.Size(666, 518);
+            this.Controls.Add(this.TxtDeadLine);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TxtCategory);
             this.Controls.Add(this.BtnClose);
@@ -166,5 +194,7 @@
         private System.Windows.Forms.Button BtnClose;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtCategory;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TxtDeadLine;
     }
 }

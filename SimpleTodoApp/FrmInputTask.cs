@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SimpleTodoApp
@@ -8,16 +9,20 @@ namespace SimpleTodoApp
         private FrmInputTask()
         {
             InitializeComponent();
-            _Task = new TaskTODO("", "", false, null);
+            _Mode = EnMode.NewMode;
+            _Task = new TaskTODO("", "", false, null, null);
         }
 
         private FrmInputTask(TaskTODO taskToEdit)
         {
             InitializeComponent();
+            _Mode = EnMode.EditMode;
             _Task = taskToEdit;
-            LoadFormWithTaskToEdit(_Task);
         }
 
+        private enum EnMode { EditMode, NewMode};
+
+        private readonly EnMode _Mode;
         private readonly TaskTODO _Task;
 
         private void LoadFormWithTaskToEdit(TaskTODO taskToEdit)
@@ -25,6 +30,16 @@ namespace SimpleTodoApp
             TxtTitle.Text = taskToEdit.Title;
             TxtDescription.Text = taskToEdit.Description;
             TxtCategory.Text = taskToEdit.category.Name;
+
+            if (taskToEdit.DeadLine.HasValue)
+            {
+                DtpDeadline.Value = taskToEdit.DeadLine.Value;
+            }
+            else
+            {
+                DtpDeadline.Value = DateTime.Now;
+                DtpDeadline.Checked = false;
+            }
         }
 
         public static TaskTODO ReadNewTask()
@@ -81,6 +96,11 @@ namespace SimpleTodoApp
                 _Task.Description = TxtDescription.Text;
                 _Task.category = new Category(TxtCategory.Text);
 
+                if (DtpDeadline.Checked)
+                    _Task.DeadLine = DtpDeadline.Value;
+                else
+                    _Task.DeadLine = null;
+
                 CloseFormProgramaticly(); // indicates success
             }
         }
@@ -96,6 +116,22 @@ namespace SimpleTodoApp
             if (_IsFormClosedByCloseButton)
                 _IsCanceled = true;
         }
-        
+
+        private void FrmInputTask_Load(object sender, EventArgs e)
+        {
+            DtpDeadline.MinDate = DateTime.Now;
+
+            switch (_Mode)
+            {
+                case EnMode.EditMode:
+                    LoadFormWithTaskToEdit(_Task);
+                    break;
+                case EnMode.NewMode:
+                    DtpDeadline.Checked = false;
+                    break;
+            }
+
+        }
+
     }
 }

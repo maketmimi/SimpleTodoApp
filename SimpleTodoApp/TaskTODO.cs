@@ -22,18 +22,21 @@ namespace SimpleTodoApp
 
         public static string RecordSeperator = "#//#";
         public static string TasksSeperator = "[TASK]";
+        private readonly static string _DateTimeSaveFormat = "ddd, dd-MM-yyyy, hh:mm tt";
 
         public string Title { get; set; }
         public string Description { get; set; }
         public bool IsChecked { get; set; }
         public Category category { get; set; }
+        public DateTime? DeadLine { get; set; } = null;
 
-        public TaskTODO(string title, string description, bool isChecked, Category category)
+        public TaskTODO(string title, string description, bool isChecked, Category category, DateTime? deadLine)
         {
             Title = title;
             Description = description;
             IsChecked = isChecked;
             this.category = category;
+            DeadLine = deadLine;
         }
 
         public TaskTODO(string Record)
@@ -49,6 +52,10 @@ namespace SimpleTodoApp
                 IsChecked = false;
 
             this.category = new Category(ArrTask[3]);
+
+            if (DateTime.TryParseExact(ArrTask[4], _DateTimeSaveFormat, null, System.Globalization.DateTimeStyles.None, out DateTime ResultDeadLine))
+                DeadLine = ResultDeadLine;
+       
         }
 
         public override string ToString()
@@ -58,7 +65,14 @@ namespace SimpleTodoApp
     
         private string ConvertToRecord()
         {
-            return string.Join(RecordSeperator, Title, Description, IsChecked.ToString(), category.Name);
+            string Record = string.Join(RecordSeperator, Title, Description, IsChecked.ToString(), category.Name);
+
+            Record += RecordSeperator;
+
+            if (DeadLine.HasValue)
+                Record += DeadLine.Value.ToString(_DateTimeSaveFormat);
+
+            return Record;
         }
     
         public static void SaveTasksToFile(string FilePath, List<TaskTODO> TasksList)

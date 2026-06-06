@@ -15,6 +15,11 @@ namespace SimpleTodoApp
                 TxtTitle.Text = task.Title;
                 TxtDescription.Text = task.Description;
                 TxtCategory.Text = task.category.Name;
+
+                if (task.DeadLine.HasValue)
+                    TxtDeadLine.Text = task.DeadLine.Value.ToString("ddd, dd-MM-yyyy, hh:mm tt");
+                else
+                    TxtDeadLine.Text = "N/A";
             }
 
         }
