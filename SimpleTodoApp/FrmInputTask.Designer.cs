@@ -30,6 +30,7 @@ namespace SimpleTodoApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInputTask));
             this.BtnDone = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -41,17 +42,20 @@ namespace SimpleTodoApp
             this.label3 = new System.Windows.Forms.Label();
             this.DtpDeadline = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
+            this.ErrpMain = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrpMain)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnDone
             // 
+            this.BtnDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnDone.BackColor = System.Drawing.Color.Transparent;
             this.BtnDone.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnDone.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(210)))), ((int)(((byte)(220)))));
             this.BtnDone.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(248)))));
             this.BtnDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDone.Font = new System.Drawing.Font("Almarai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDone.Location = new System.Drawing.Point(513, 509);
+            this.BtnDone.Location = new System.Drawing.Point(554, 525);
             this.BtnDone.Name = "BtnDone";
             this.BtnDone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnDone.Size = new System.Drawing.Size(141, 48);
@@ -62,13 +66,14 @@ namespace SimpleTodoApp
             // 
             // BtnCancel
             // 
+            this.BtnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnCancel.BackColor = System.Drawing.Color.Transparent;
             this.BtnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(210)))), ((int)(((byte)(220)))));
             this.BtnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(248)))));
             this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancel.Font = new System.Drawing.Font("Almarai", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancel.Location = new System.Drawing.Point(366, 509);
+            this.BtnCancel.Location = new System.Drawing.Point(407, 525);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnCancel.Size = new System.Drawing.Size(141, 48);
@@ -79,10 +84,11 @@ namespace SimpleTodoApp
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Almarai", 16F);
-            this.label2.Location = new System.Drawing.Point(516, 9);
+            this.label2.Location = new System.Drawing.Point(557, 9);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(144, 34);
@@ -91,9 +97,12 @@ namespace SimpleTodoApp
             // 
             // TxtDescription
             // 
+            this.TxtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtDescription.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDescription.Location = new System.Drawing.Point(12, 150);
+            this.ErrpMain.SetIconAlignment(this.TxtDescription, System.Windows.Forms.ErrorIconAlignment.TopRight);
+            this.ErrpMain.SetIconPadding(this.TxtDescription, 5);
+            this.TxtDescription.Location = new System.Drawing.Point(53, 150);
             this.TxtDescription.MaxLength = 0;
             this.TxtDescription.Multiline = true;
             this.TxtDescription.Name = "TxtDescription";
@@ -102,24 +111,29 @@ namespace SimpleTodoApp
             this.TxtDescription.Size = new System.Drawing.Size(642, 247);
             this.TxtDescription.TabIndex = 1;
             this.TxtDescription.WordWrap = false;
+            this.TxtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.Inputs_Validating);
             // 
             // TxtTitle
             // 
+            this.TxtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtTitle.BackColor = System.Drawing.Color.White;
             this.TxtTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtTitle.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTitle.Location = new System.Drawing.Point(12, 46);
+            this.ErrpMain.SetIconPadding(this.TxtTitle, 5);
+            this.TxtTitle.Location = new System.Drawing.Point(53, 46);
             this.TxtTitle.Name = "TxtTitle";
             this.TxtTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TxtTitle.Size = new System.Drawing.Size(642, 54);
             this.TxtTitle.TabIndex = 0;
+            this.TxtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.TxtTitle_Validating);
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Almarai", 16F);
-            this.label1.Location = new System.Drawing.Point(516, 113);
+            this.label1.Location = new System.Drawing.Point(557, 113);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(144, 34);
@@ -128,21 +142,26 @@ namespace SimpleTodoApp
             // 
             // TxtCategory
             // 
+            this.TxtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtCategory.BackColor = System.Drawing.Color.White;
             this.TxtCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtCategory.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCategory.Location = new System.Drawing.Point(366, 447);
+            this.ErrpMain.SetIconPadding(this.TxtCategory, 5);
+            this.TxtCategory.Location = new System.Drawing.Point(407, 447);
+            this.TxtCategory.MaxLength = 20;
             this.TxtCategory.Name = "TxtCategory";
             this.TxtCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TxtCategory.Size = new System.Drawing.Size(288, 39);
             this.TxtCategory.TabIndex = 2;
+            this.TxtCategory.Validating += new System.ComponentModel.CancelEventHandler(this.Inputs_Validating);
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Almarai", 16F);
-            this.label3.Location = new System.Drawing.Point(508, 410);
+            this.label3.Location = new System.Drawing.Point(549, 410);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(152, 34);
@@ -151,13 +170,14 @@ namespace SimpleTodoApp
             // 
             // DtpDeadline
             // 
+            this.DtpDeadline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DtpDeadline.CalendarFont = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpDeadline.CalendarForeColor = System.Drawing.Color.Black;
             this.DtpDeadline.CalendarMonthBackground = System.Drawing.Color.White;
             this.DtpDeadline.CustomFormat = "ddd, dd-MM-yyyy, hh:mm tt";
             this.DtpDeadline.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpDeadline.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtpDeadline.Location = new System.Drawing.Point(12, 447);
+            this.DtpDeadline.Location = new System.Drawing.Point(14, 447);
             this.DtpDeadline.MinDate = new System.DateTime(2026, 6, 6, 23, 56, 37, 210);
             this.DtpDeadline.Name = "DtpDeadline";
             this.DtpDeadline.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -169,22 +189,31 @@ namespace SimpleTodoApp
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Almarai", 16F);
-            this.label4.Location = new System.Drawing.Point(218, 410);
+            this.label4.Location = new System.Drawing.Point(220, 410);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(146, 34);
             this.label4.TabIndex = 11;
             this.label4.Text = "الموعد النهائي:";
             // 
+            // ErrpMain
+            // 
+            this.ErrpMain.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.ErrpMain.ContainerControl = this;
+            this.ErrpMain.Icon = ((System.Drawing.Icon)(resources.GetObject("ErrpMain.Icon")));
+            this.ErrpMain.RightToLeft = true;
+            // 
             // FrmInputTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(666, 569);
+            this.ClientSize = new System.Drawing.Size(707, 585);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.DtpDeadline);
             this.Controls.Add(this.label3);
@@ -204,6 +233,7 @@ namespace SimpleTodoApp
             this.Text = "إدخال مهمة";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmInputTaskBox_FormClosing);
             this.Load += new System.EventHandler(this.FrmInputTask_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrpMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +250,6 @@ namespace SimpleTodoApp
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker DtpDeadline;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider ErrpMain;
     }
 }

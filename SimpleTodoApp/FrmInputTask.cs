@@ -24,7 +24,8 @@ namespace SimpleTodoApp
 
         private readonly EnMode _Mode;
         private readonly TaskTODO _Task;
-
+        private readonly static string[] InvalidInputs = {TaskTODO.RecordSeperator, TaskTODO.TasksSeperator};
+        
         private void LoadFormWithTaskToEdit(TaskTODO taskToEdit)
         {
             TxtTitle.Text = taskToEdit.Title;
@@ -86,10 +87,9 @@ namespace SimpleTodoApp
 
         private void BtnDone_Click(object sender, System.EventArgs e)
         {
-            string[] InvalidInputs = {TaskTODO.RecordSeperator, TaskTODO.TasksSeperator};
 
-            if (string.IsNullOrEmpty(TxtTitle.Text.Trim()) || ContainsAny(TxtTitle.Text, InvalidInputs) || ContainsAny(TxtDescription.Text, InvalidInputs) || ContainsAny(TxtCategory.Text, InvalidInputs))
-                MessageBox.Show("إدخال خاطئ!\n\nيجب أن لا تقوم بإدخال هذه الرموز:\n[TASK]\n#//#", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
+            if (!ValidateChildren())
+                MessageBox.Show("إدخال خاطئ", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
             else
             {
                 _Task.Title = TxtTitle.Text;
@@ -133,5 +133,33 @@ namespace SimpleTodoApp
 
         }
 
+        private void TxtTitle_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TxtTitle.Text))
+            {
+                ErrpMain.SetError(TxtTitle, "حقل إجباري!");
+                e.Cancel = true;
+            }
+            else if (ContainsAny(TxtTitle.Text, InvalidInputs))
+            {
+                ErrpMain.SetError(TxtTitle, "ممنوع كتابة #//# او [TASK]");
+                e.Cancel = true;
+            }
+            else
+                ErrpMain.SetError(TxtTitle, null);
+        }
+
+        private void Inputs_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox InputField = (TextBox)sender;
+
+            if (ContainsAny(InputField.Text, InvalidInputs))
+            {
+                ErrpMain.SetError(InputField, "ممنوع كتابة #//# او [TASK]");
+                e.Cancel = true;
+            }
+            else
+                ErrpMain.SetError(InputField, null);
+        }
     }
 }
